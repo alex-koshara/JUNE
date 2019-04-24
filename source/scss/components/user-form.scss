@@ -1,0 +1,8 @@
+.user-form__wrap-btns {
+  @media (min-width: $tablet) {
+    display: flex;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

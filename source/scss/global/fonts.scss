@@ -1,0 +1,13 @@
+
+@mixin font-face($family, $path, $weight) {
+  @font-face {
+    font-family: $family;
+    font-weight: $weight;
+
+    src: url('#{$path}.woff2') format('woff2'),
+    url('#{$path}.woff') format('woff');
+  }
+}
+
+@include font-face('Roboto', '../fonts/roboto', 300);
+@include font-face('Roboto', '../fonts/robotobold', 700);

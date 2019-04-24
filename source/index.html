@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <title>June</title>
+</head>
+<body>
+<div class="container">
+  <form class="user-form" action="" method="POST">
+    <div class="user-form__card  card  is-active">
+      <h2>
+        Full Name
+      </h2>
+      <label>Name<input type="text"></label>
+      <label>Sur name<input type="text"></label>
+      <label>Last name<input type="text"></label>
+    </div>
+    <div class="user-form__card  card">
+      <h2>
+        Choose your city
+      </h2>
+      <label>London<input type="checkbox"></label>
+      <label>New Youk<input type="checkbox"></label>
+      <label>Moscow<input type="checkbox"></label>
+      <label>Vashington<input type="checkbox"></label>
+      <label>Los-Angeles<input type="checkbox"></label>
+    </div>
+    <div class="user-form__card  card">
+      <h2>
+        Yourself
+      </h2>
+      <label>Возраст<input type="text"></label>
+      Пол
+      <label>Men<input type="radio" name="sex" value="m"></label>
+      <label>Women<input type="radio" name="sex" value="w"></label>
+    </div>
+    <div class="user-form__card  card">
+      <h2>
+        Contacts
+      </h2>
+      <label>Adress<input type="text"></label>
+      <label>street<input type="text"></label>
+      <label>home<input type="text"></label>
+    </div>
+    <div class="user-form__card  card">
+      <h2>Результат всех форм:</h2>
+    </div>
+    <div class="user-form__pagination  pagination">
+      <button data-page="1" class="pagination__btn  btn  is-disabled  is-visible" type="button">Frth</button>
+      <button data-page="2" class="pagination__btn  btn" type="button">Sec</button>
+      <button data-page="3" class="pagination__btn  btn" type="button">Thrd</button>
+      <button data-page="4" class="pagination__btn  btn" type="button">Fourth</button>
+      <button class="pagination__btn  btn  is-disabled  is-visible" type="button" id="next">Next</button>
+    </div>
+  </form>
+</div>
+
+<script src='js/main.js'></script>
+</body>
+</html>

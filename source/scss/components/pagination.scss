@@ -1,0 +1,11 @@
+.pagination {
+  display: flex;
+}
+
+.pagination__btn {
+  display: none;
+
+  &.is-visible {
+    display: block;
+  }
+}

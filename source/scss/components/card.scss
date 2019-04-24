@@ -1,0 +1,6 @@
+.card {
+  display: none;
+  &.is-active {
+    display: block;
+  }
+}

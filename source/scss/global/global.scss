@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #333F48;
+}
+
+.is-visible,
+.is-active {
+  display: block;
+}
