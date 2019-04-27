@@ -4,11 +4,15 @@
 
 .pagination__btn {
   display: none;
+  margin-right: 15px;
 
   &.is-visible {
     display: block;
   }
   &.is-disabled {
     opacity: .5;
+  }
+  &:last-child {
+    margin-right: 0;
   }
 }
