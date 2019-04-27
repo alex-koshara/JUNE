@@ -8,4 +8,7 @@
   &.is-visible {
     display: block;
   }
+  &.is-disabled {
+    opacity: .5;
+  }
 }
