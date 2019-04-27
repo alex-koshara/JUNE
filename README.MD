@@ -1,3 +1,8 @@
+<h2>Run project:</h2>
+- `git clone https://github.com/alex-koshara/JUNE June`
+- `npm i`
+- `npm run dev`
+
 
 1. Задание будет следующим: У нас есть форма, состоящая из шагов(превью в папке /preview, контент шагов произвольный.
 - [x] Напихать инпуты в каждую форму
