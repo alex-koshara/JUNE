@@ -1,0 +1,34 @@
+.input {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 17px;
+  padding-top: 7px;
+}
+
+.input__control {
+  padding: 14px 0;
+
+  border: none;
+  border-bottom: 2px solid $primary-color;
+  background: none;
+
+  &::placeholder {
+    transition: text-indent .3s linear;
+
+    opacity: .3;
+  }
+  &:hover {
+    border-color: $aqua;
+  }
+  &:focus {
+    border-color: $aqua;
+    outline: none;
+    &::placeholder {
+      transition: text-indent .3s linear;
+      text-indent: 800px;
+    }
+  }
+}
