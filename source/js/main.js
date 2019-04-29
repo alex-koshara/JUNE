@@ -1,5 +1,8 @@
 'use strict';
 
+let userStorage = localStorage;
+console.log(userStorage)
+
 const step = 1;
 const cards = document.querySelectorAll('.card');
 const nextBtn = document.querySelector('#next');
@@ -26,7 +29,7 @@ paginationList.addEventListener('click', (evt) => {
     setActiveCard(state.activePage, state.prevCardPage)
     state.prevCardPage = state.activePage;
 
-    if(evt.target.dataset.page == state.maxCardPage) {
+    if (evt.target.dataset.page == state.maxCardPage) {
       resultForm.innerHTML = showFinalResultInputs();
     }
   }
@@ -61,7 +64,6 @@ function setActiveCard(nextPage, prevPage) {
   cards[nextPage].classList.add('is-active');
 }
 
-// TODO: Сделать функцию для дизейбла текущей пагинации.
 function setDisabledPaginationBtn(nextDisabledPage, prevDisabledPage) {
   paginationBtns[prevDisabledPage].classList.remove('is-disabled');
   paginationBtns[nextDisabledPage].classList.add('is-disabled');
@@ -71,7 +73,21 @@ function setDisabledPaginationBtn(nextDisabledPage, prevDisabledPage) {
 const inputs = document.querySelectorAll('input');
 const userForm = document.querySelector("#user-form");
 
-// userForm.addEventListener('focus', (evt) => alert(evt.target.value));
+if (userStorage.length) {
+  let inputIndex = null;
+  let storageKeys = Object.keys(userStorage);
+  for (let i = 0; i < storageKeys.length; i++) {
+    inputIndex = storageKeys[i].split('input')[1];
+    if (inputs[i].type == 'text') {
+      inputs[inputIndex].value = userStorage[storageKeys[i]];
+    }
+
+    if (inputs[inputIndex].type == 'checkbox') {
+      inputs[inputIndex].checked = true;
+    }
+
+  }
+}
 
 const onInputFocus = function (i) {
   return function () {
@@ -84,10 +100,31 @@ const onInputFocus = function (i) {
 const onInputBlur = function (i) {
   return function () {
     groupFinalPage(inputs[i]);
+    let inputType = inputs[i].type;
+    let input = inputs[i];
 
-    if (inputs[i].type == 'text') {
-      inputs[i].setAttribute('final', inputs[i].value);
-      inputs[i].value = inputs[i].getAttribute('final');
+    if (inputType == 'text') {
+      input.setAttribute('final', input.value);
+      input.value = input.getAttribute('final');
+      saveLocalStorage(input, inputType, i);
+    }
+
+    if (inputType == 'checkbox') {
+      saveLocalStorage(input, inputType, i);
+    }
+  }
+}
+
+function saveLocalStorage(input, type, index) {
+  if (type == 'text') {
+    localStorage['input' + index] = input.getAttribute('final');
+  }
+
+  if (type == 'checkbox') {
+    if (input.checked) {
+      localStorage.setItem('input' + index, input.checked)
+    } else {
+      localStorage.removeItem('input' + index);
     }
   }
 }
@@ -107,20 +144,20 @@ function showFinalResultInputs() {
     inputs.forEach((input) => {
       let inputValue = input.value;
       let inputLabel = input.previousSibling.textContent;
-      
+
       if (input.getAttribute('page') == title.innerText.trim()) {
         finalInputsTemplate += `<div>`;
-        
+
         if (input.type == 'text' && input.getAttribute('init') != input.getAttribute('final')) {
           finalInputsTemplate += `<b>${inputLabel}</b>: ${inputValue}`;
         }
-    
+
         if (input.type == 'checkbox' && input.checked) {
           finalInputsTemplate += `- ${inputLabel}`;
         }
-    
+
         if (input.type == 'radio' && input.checked) {
-         finalInputsTemplate += `- ${inputLabel}`;
+          finalInputsTemplate += `- ${inputLabel}`;
         }
 
         finalInputsTemplate += `</div>`;
