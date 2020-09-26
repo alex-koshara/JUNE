@@ -1,6 +1,6 @@
 <h2>Run project:</h2>
 - <code>git clone https://github.com/alex-koshara/JUNE June</code> <br>
-- <code>npm</code> <br>
+- <code>npm i</code> <br>
 - <code>npm run dev</code> <br>
 
 <br>
